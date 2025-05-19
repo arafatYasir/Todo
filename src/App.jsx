@@ -15,11 +15,21 @@ function App() {
       return;
     }
 
+    const currentDateAndTime = new Date().toLocaleDateString('en-US', {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+    });
+
     const newTask = {
       id: Date.now(),
       title: titleValue,
       description: descriptionValue,
       completed: false,
+      createdAt: currentDateAndTime
     };
 
     setTasks(prev => [...prev, newTask]);
